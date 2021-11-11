@@ -727,4 +727,6 @@ delay_access 2 deny all
 
 ## Kendala dalam pengerjaan
 * Kepadatan jadwal membuat koordinasi kelompok kurang baik
-* saat pengumpulan sempat mengalami error sehingga beberapa soal mengulang dari awal
+* Salah satu anggota mengalami error pada saat mengerjakan
+	![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/messageImage_1636353211045.jpeg)
+* 
