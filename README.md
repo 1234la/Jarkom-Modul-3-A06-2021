@@ -117,6 +117,7 @@ apt-get update
 apt-get install nano -y
 apt-get install isc-dhcp-relay -y
 ```
+![image](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/1.2%20file%20script%20di%20node%20foosha.jpg)  
 *Gambar 1.2 file script.sh foosha*
 
 ```diff
@@ -132,6 +133,9 @@ Langkah selanjutnya :
   - cek apakah interface telah sesuai dengan berikut INTERFACES="eth1 eth2 eth3"
    & SERVERS="10.2.2.4"   
    sebagai berikut:  
+   
+   ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/1.2%20config%20dhcp%20relay.jpg)
+   
    *Gambar 1.2 config dhcp relay*
   - apabila telah sesuai, lakukan restart dengan :  ```service isc-dhcp-relay restart```
 
@@ -142,7 +146,7 @@ apt-get install nano -y
 apt-get install bind9 -y
 apt-get install dnsutils -y
 ```
-
+![image](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/1.2%20file%20script%20di%20node%20enieslobby.jpg)  
 *Gambar 1.2 file script.sh EniesLobby*
 
 > **Node Jipangu**
@@ -152,11 +156,15 @@ apt-get install nano -y
 apt-get install isc-dhcp-server -y
 ```
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/1.2%20file%20script%20di%20node%20jipangu.jpg)
+
 *Gambar file script.sh Jipangu*
 
 Langkah selanjutnya :
 - buka file isc-dhcp-server dengan perintah ```nano /etc/default/isc-dhcp-server``` & isi INTERFACES = "eth0" seperti gambar berikut 
--  
+
+![image](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/1.2%20config%20dhcp%20server.jpg)  
+
    *Gambar 1.2 config dhcp server*
    
 - kemudian lakukan restart dengan perintah ```service isc-dhcp-server restart```
@@ -182,6 +190,8 @@ apt-get install nano -y
 apt-get install lynx -y
 apt install speedtest-cli -y
 ```
+![image](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/1.2%20file%20script%20di%20node%20client.jpg)  
+
 *Gambar 1.2 file script.sh client*
 
 ## Soal 3, 4, & 6
@@ -203,6 +213,7 @@ subnet 10.2.1.0 netmask 255.255.255.0 {
     max-lease-time 7200; //No. 6
 }
 ```
+![gambar](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20%20config%20dhcp%20server%20subnet%201.jpg)
 
 *Gambar 3.6 config dhcp server subnet1*
 
@@ -217,6 +228,7 @@ subnet 10.2.3.0 netmask 255.255.255.0 {
     max-lease-time 7200;//No. 6
 }
 ```
+![gambar](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20config%20dhcp%20server%20subnet%202.jpg)
 
 *Gambar 3.6 config dhcp server subnet2*
 
@@ -226,6 +238,7 @@ subnet 10.2.2.0 netmask 255.255.255.0 {
      option routers 10.2.2.1;
 }
 ```  
+![gambar](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20config%20dhcp%20server%20pembuka%20gateway.jpg)
 
 *Gambar 3.6 config dhcp server untuk membuka gateway*
 
@@ -239,6 +252,7 @@ kemudian lakukan konfigurasi pada node-node client dengan
   auto eth0
   iface eth0 inet dhcp
   ```
+  ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20konfigurasi%20baru%20pd%20loguetown.jpg)
   
   *Gambar 3.6 konfigurasi baru pada Loguetown*
   
@@ -246,10 +260,13 @@ kemudian lakukan konfigurasi pada node-node client dengan
 ```diff 
 > klik kanan node → klik Stop → klik kanan kembali node → klik Start  
 ```
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20restart%20node%20client.jpg)
 
   *Gambar 3.6 restart node client*
 
 lakukan pengecekan dengan ip a untuk mengetahui apakah konfigurasi telah berhasil. Jika telah berhasil maka ip akan berubah sesuai range yang di berikan pada konfigurasi di /etc/dhcp/dhcpd.conf sesuai yang diminta soal yaitu pada switch 1 rangenya 10.2.1.20 - 10.2.1.99 & 10.2.1.150 - 10.2.1.169 . Sedangkan pada switch 3 rangenya 10.2.3.30-10.2.3.50. contohnya sebagai berikut :  
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20hasil%20ip%20a%20setelah%20config%20pd%20loguetown.jpg)
 
 *Gambar 3.6 hasil ip a setelah config pada Loguetown*
 
@@ -266,14 +283,17 @@ forwarders {
 ```
 
 **Step 2:** command ```dnssec-validation auto``` & tambahkan dibawahnya dengan ``allow-query{any;};``
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/4%20agar%20client%20bisa%20akses%20internet.jpg)
 
 *Gambar 5 agar client bisa akses internet*
 
 **Step 3:** cek apakah client telah mendapatkan DNS yakni melalui ip enieslobby (10.2.2.2) sesuai konfigurasi di DHCP Server dengan perintah ``cat /etc/resolv.conf ``
+ ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/4%20cek%20dns%20loguetown.jpg)
  
 *Gambar 5 cek DNS loguetown*
 
 **Step 4:** cek apakah internet dapat diakses dengan ``ping google.com``
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/4%20cek%20internet%20loguetown.jpg)
 
 *Gambar 5 cek internet loguetown*
 
@@ -292,6 +312,8 @@ host Skypie {
 Adapun untuk mengetahui 'hwaddress_milik_Skypie'= f6:e0:b8:d6:03:d3 gunakan command ```ip a``` di node skypie,  kemudian lihat interface yang berhubungan dengan router, 
 dalam kasus ini adalah eth1, dan lihat pada bagian _link/ether_, silakan copy address tersebut karena merupakan '_hwaddress_milik_Skypie_' yang akan digunakan untuk konfigurasi dhcpd di Jipangu. 
  
+ ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/7%20ip%20a%20skypie.jpg)
+ 
 *Gambar 7 ip a Skypie*
 
 Maka konfigurasi pada file dhcpd.conf menjadi :
@@ -309,6 +331,7 @@ Maka konfigurasi pada file dhcpd.conf menjadi :
   ```
   hwaddress ether f6:e0:b8:d6:03:d3
   ```
+  ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/7%20konfigurasi%20interfaces.jpg)
   
   *Gambar 7 konfigurasi interface*
 
@@ -316,6 +339,8 @@ Maka konfigurasi pada file dhcpd.conf menjadi :
   klik kanan node → klik Stop → klik kanan kembali node → klik Start
 
 **Step 5:** Lalu lakukan testing pada node skypie dengan command ```ip a```
+ 
+ ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/7%20hasil%20testing.jpg)
  
  *Gambar 7 hasil testing*
   
@@ -334,6 +359,8 @@ zone "jualbelikapal.a06.com" {
 };
 ```
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/8%20config%20named.conf.local.jpg)
+
 *Gambar 8 config named.conf.local*
 
 **Step 2:** Buat folder jarkom di dalam /etc/bind pada enieslobby dengan perintah ```mkdir /etc/bind/jarkom```
@@ -341,6 +368,8 @@ zone "jualbelikapal.a06.com" {
 **Step 3:** Copykan file db.local pada path /etc/bind ke dalam folder jarkom yang baru saja dibuat dan ubah namanya menjadi jualbelikapal.a06.com dengan perintah ```cp /etc/bind/db.local /etc/bind/jarkom/jualbelikapal.a06.com```
 
 **Step 4:** kemudian buka file jualbelikapal.a06.com dengan ```nano /etc/bind/jarkom/jualbelikapal.a06.com``` dan lakukan pengeditan seperti gambar berikut :
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/8%20file%20jualbelikapal.a06.com.jpg)
 
 *Gambar 8 file jualbelikapal.a06.com*
 
@@ -365,6 +394,8 @@ visible_hostname jualbelikapal.a06.com
 **Step 1:** untuk memeriksa apakah konfigurasi pembuatan domain berhasil atau tidak dengan perintah
 ```ping jualbelikapal.a06.com```
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/8%20hasil%20ping%20jualbelikapal.a06.com.jpg)
+
 *Gambar hasil ping jualbelikapal.a06.com*
 
 **Step 2:** lakukan konfigurasi proxy dengan mengaktifkan proxy sebagai berikut ```export http_proxy="http://ip-proxy-server:port"```
@@ -383,13 +414,19 @@ Selain itu proxy dapat diakses juga dengan nama jualbelikapal.a06.com . Apabila 
 
 - jika menggunakan export dengan 10.2.2.3:5000
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/8%20export%20http%20proxy.jpg)
+
 *Gambar 8 export http proxy*
 
 - jika menggunakan export dengan jualbelikapal.a06.com:5000
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/8%20export%20http%20proxy%202.jpg)
+
 *Gambar 8 export http proxy 2*
 
 **Step 4:** coba untuk mengakses web http://its.ac.id dengan perintah ```lynx http://its.ac.id```. Maka akan muncul halaman seperti berikut:
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/8%20halaman%20proxy.jpg)
 
 *Gambar 8 halaman proxy*
 
@@ -410,6 +447,8 @@ htpasswd -m /etc/squid/passwd zorobelikapala06
 
 Ketikkan password yang telah ditentukan. Jika sudah maka akan muncul notifikasi:
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/9%20notifikasi%20password.jpg)
+
 *Gambar 9 notifikasi password*
 
 **Step 2:** melakukan edit file dengan membuka ```nano /etc/squid/squid.conf``` Lalu tambahkan konfigurasi berikut 
@@ -425,6 +464,8 @@ http_access allow USERS
 
 sebagai berikut :
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/9%20config%20squid.conf.jpg)
+
 *Gambar 9 config squid.conf*
 
 **Step 3:** Restart squid dengan :
@@ -434,21 +475,34 @@ sebagai berikut :
 
 - Login dengan username luffybelikapala06  
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/9%20halaman%20login%20user%20luffy.jpg)
+
 *Gambar 9 halaman login user luffy*
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/9%20halaman%20login%20pass%20user%20luffy.jpg)
 
 *Gambar 9 halaman login pass luffy*
 
 setelah login muncul notif SSL tekan y (yes) maka website akan ditampilkan  
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/9%20halaman%20its%20luffy.jpg)
+
 *Gambar 9 halaman its luffy*
 
 - login dengan username zorobelikapala06  
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/9%20halaman%20login%20user%20zoro.jpg)
+
 *Gambar 9 halaman login user zoro*
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/9%20halaman%20pass%20user%20zoro.jpg)
 
 *Gambar 9 halaman login pass zoro*
 
 setelah login muncul noitf SSl tekan y (yes) maka website akan ditampilkan:
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/9%20halaman%20its%20zoro.jpg)
+
 *Gambar 9 halaman its zoro*
 
 ## Soal 10
@@ -465,7 +519,7 @@ acl AVAILABLE_WORKING time MTWH 07:00-11:00
 acl AVAILABLE_WORKING_2 time TWHF 17:00-23:59
 acl AVAILABLE_WORKING_3 time A 00:00-03:00
 ```
-
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/10%20acl.conf.jpg)
 *Gambar 10 acl.conf"
 
 **Step 3:** Buka file squid.conf dengan perintah ```nano /etc/squid/squid.conf``` & tambahkan konfigurasi berikut pada file squid.conf
@@ -478,13 +532,20 @@ acl AVAILABLE_WORKING_3 time A 00:00-03:00
 #http_access allow USERS AVAILABLE_WORKING_3
 ```
 maka letakkan konfigurasi sesuai gambar berikut :
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/10%20squid.conf.jpg)
+
 *Gambar 10 squid.conf1*
 
 **Step 4:** Lakukan restart squid dengan perintah ```service squid restart```
 
 **Step 5:** Coba untuk mengakses web http://its.ac.id. Akan muncul halaman error jika mengakses diluar waktu yang telah ditentukan sebagai berikut 
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/10%20halaman%20http%20forbidden.jpg)
+
 *Gambar 10 halaman http forbidden*
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/10%20halaman%20denied%20proxy.jpg)
 
 *Gambar 10 halaman dinied proxy*
 
@@ -503,6 +564,8 @@ zone "super.franky.a06.com" {
 };
 ```
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20named.conf.local.jpg)
+
 *Gambar 11 named.conf.local"
 
 **Step 2:** buat folder sunnygo dengan perintah ```mkdir sunnygo```
@@ -512,6 +575,8 @@ zone "super.franky.a06.com" {
 ```cp /etc/bind/db.local /etc/bind/sunnygo/super.franky.a06.com```
 
 **Step 4:** sesuaikan konfigurasi pada file super.franky.a06.com seperti gambar berikut
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20super.franky.a06.jpg)
 
 *Gambar 11 super.franky.a06.com"
 
@@ -539,6 +604,8 @@ keluar.
 - kemudian untuk unzip file lakukan perintah : ```unzip super.franky.zip```
 - pindahkan file dalam folder super.franky ke folder super.franky.a06.com lakukan :  ```cp -r super.franky/. .``` 
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20isi%20folder%20vr%20ww%20super.franky.a06.jpg)
+
 *Gambar 11 isi folder vr ww super.franky.a06*
 
 **Step 5:** buka folder sites-available dengan ```cd /etc/apache2/sites-available``` & kemudian buat file nano super.franky.a06.com.conf dengan perintah
@@ -547,9 +614,13 @@ keluar.
 
 **Step 6:** tambahkan konfigurasi seperti gambar berikut pada file super.franky.a06.com.conf
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20super.franky.a06.jpg)
+
 *Gambar 11 super.franky.a06.com*
 
 **Step 7:** Aktifkan konfigurasi super.franky.a06.com.conf menggunakan perintah ```a2ensite super.franky.a06.com.conf```
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20a2ensite.jpg)
 
 *Gambar 11 a2ensite*
 
@@ -564,10 +635,13 @@ acl site dstdomain .google.com
 deny_info http://super.franky.a06.com/ site
 http_reply_access deny site
 ```
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/10%20squid.conf.jpg)
 
 *Gambar 11 squid.conf*
 
 **Step 2:** ubah nameserver menjadi 10.2.2.2 dengan membuka file resolv.conf melalui perintah ```nano /etc/resolv.conf```
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20resolv.conf.jpg)
 
 *Gambar 11 resolv.conf*
 
@@ -575,11 +649,19 @@ http_reply_access deny site
 
 **Step 4:** coba akses super.franky.a06.com pada client yang menggunakan proxy (loguetown) dengan ``lynx google.com`` maka akan di redirect ke super.franky.a06.com setalah melakukan login.
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20halaman%20user.jpg)
+
 *Gambar 11 halaman username*
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20halaman%20pass.jpg)
 
 *Gambar 11 halaman pass*
 
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20notif%20redirect.jpg)
+
 *Gambar 11 notif redirect*
+
+![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20halaman%20super.jpg)
 
 *Gambar 11 halaman super*
 
@@ -642,3 +724,7 @@ delay_access 2 deny all
 **Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
 
 *Gambar 13*
+
+## Kendala dalam pengerjaan
+* Kepadatan jadwal membuat koordinasi kelompok kurang baik
+* saat pengumpulan sempat mengalami error sehingga beberapa soal mengulang dari awal
