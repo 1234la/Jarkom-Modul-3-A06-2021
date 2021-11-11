@@ -244,7 +244,7 @@ kemudian lakukan konfigurasi pada node-node client dengan
   
 - lakukan restart setiap node client dengan cara
 ```diff 
-  > klik kanan node → klik Stop → klik kanan kembali node → klik Start  
+> klik kanan node → klik Stop → klik kanan kembali node → klik Start  
 ```
 
   *Gambar 3.6 restart node client*
@@ -403,7 +403,7 @@ Agar transaksi jual beli lebih aman dan pengguna website ada dua orang, proxy di
 htpasswd -m /etc/squid/passwd luffybelikapala06 
 ```
 
-- username ```zorrobelikapala06``` -> pass: zoro_a06
+- username ```zorrobelikapala06``` -> pass: ```zoro_a06```
 ```
 htpasswd -m /etc/squid/passwd zorobelikapala06 
 ```
