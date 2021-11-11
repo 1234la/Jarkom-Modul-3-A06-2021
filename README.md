@@ -12,7 +12,9 @@ Lapres Praktikum Jaringan Komputer 2021 - Modul 3
 - Lathifa Itqonina Mardiyati (05111940000176)
 
 ## Soal 1 & 2
+
 ![image](https://user-images.githubusercontent.com/55240758/141098861-36e0e716-5a73-423e-9d90-3368f921d706.png)  
+
 Luffy bersama Zoro berencana membuat peta tersebut dengan kriteria EniesLobby sebagai DNS Server, Jipangu sebagai DHCP Server, Water7 sebagai Proxy Server (1) dan Foosha sebagai DHCP Relay (2)
 ### Jawaban 
 **Step 1:** Membuat topologi sesuai gambar topologi yang terlampir, dan mengatur network interface setiap nodenya dengan cara :
@@ -117,7 +119,9 @@ apt-get update
 apt-get install nano -y
 apt-get install isc-dhcp-relay -y
 ```
+
 ![image](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/1.2%20file%20script%20di%20node%20foosha.jpg)  
+
 *Gambar 1.2 file script.sh foosha*
 
 ```diff
@@ -146,6 +150,7 @@ apt-get install nano -y
 apt-get install bind9 -y
 apt-get install dnsutils -y
 ```
+
 ![image](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/1.2%20file%20script%20di%20node%20enieslobby.jpg)  
 *Gambar 1.2 file script.sh EniesLobby*
 
@@ -190,6 +195,7 @@ apt-get install nano -y
 apt-get install lynx -y
 apt install speedtest-cli -y
 ```
+
 ![image](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/1.2%20file%20script%20di%20node%20client.jpg)  
 
 *Gambar 1.2 file script.sh client*
@@ -213,6 +219,7 @@ subnet 10.2.1.0 netmask 255.255.255.0 {
     max-lease-time 7200; //No. 6
 }
 ```
+
 ![gambar](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20%20config%20dhcp%20server%20subnet%201.jpg)
 
 *Gambar 3.6 config dhcp server subnet1*
@@ -228,6 +235,7 @@ subnet 10.2.3.0 netmask 255.255.255.0 {
     max-lease-time 7200;//No. 6
 }
 ```
+
 ![gambar](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20config%20dhcp%20server%20subnet%202.jpg)
 
 *Gambar 3.6 config dhcp server subnet2*
@@ -238,6 +246,7 @@ subnet 10.2.2.0 netmask 255.255.255.0 {
      option routers 10.2.2.1;
 }
 ```  
+
 ![gambar](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20config%20dhcp%20server%20pembuka%20gateway.jpg)
 
 *Gambar 3.6 config dhcp server untuk membuka gateway*
@@ -252,6 +261,7 @@ kemudian lakukan konfigurasi pada node-node client dengan
   auto eth0
   iface eth0 inet dhcp
   ```
+  
   ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20konfigurasi%20baru%20pd%20loguetown.jpg)
   
   *Gambar 3.6 konfigurasi baru pada Loguetown*
@@ -260,6 +270,7 @@ kemudian lakukan konfigurasi pada node-node client dengan
 ```diff 
 > klik kanan node → klik Stop → klik kanan kembali node → klik Start  
 ```
+
 ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20restart%20node%20client.jpg)
 
   *Gambar 3.6 restart node client*
@@ -284,16 +295,19 @@ forwarders {
 ```
 
 **Step 2:** command ```dnssec-validation auto``` & tambahkan dibawahnya dengan ``allow-query{any;};``
+
 ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/4%20agar%20client%20bisa%20akses%20internet.jpg)
 
 *Gambar 5 agar client bisa akses internet*
 
 **Step 3:** cek apakah client telah mendapatkan DNS yakni melalui ip enieslobby (10.2.2.2) sesuai konfigurasi di DHCP Server dengan perintah ``cat /etc/resolv.conf ``
+
  ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/4%20cek%20dns%20loguetown.jpg)
  
 *Gambar 5 cek DNS loguetown*
 
 **Step 4:** cek apakah internet dapat diakses dengan ``ping google.com``
+
 ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/4%20cek%20internet%20loguetown.jpg)
 
 *Gambar 5 cek internet loguetown*
@@ -332,7 +346,9 @@ Maka konfigurasi pada file dhcpd.conf menjadi :
   ```
   hwaddress ether f6:e0:b8:d6:03:d3
   ```
+  
   ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/7%20konfigurasi%20interfaces.jpg)
+  
   
   *Gambar 7 konfigurasi interface*
 
@@ -340,6 +356,7 @@ Maka konfigurasi pada file dhcpd.conf menjadi :
   klik kanan node → klik Stop → klik kanan kembali node → klik Start
 
 **Step 5:** Lalu lakukan testing pada node skypie dengan command ```ip a```
+
  
  ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/7%20hasil%20testing.jpg)
  
@@ -512,14 +529,17 @@ Transaksi jual beli tidak dilakukan setiap hari, oleh karena itu akses internet 
 ### Jawab
 
 untuk membuat batasan waktu akses maka pada node Water7:
+
 **Step 1:** Buat file baru bernama acl.conf di folder squid dengan perintah ```nano /etc/squid/acl.conf```
 
 **Step 2:** Tambahkan pada file acl.conf konfigurasi berikut 
+
 ```
 acl AVAILABLE_WORKING time MTWH 07:00-11:00
 acl AVAILABLE_WORKING_2 time TWHF 17:00-23:59
 acl AVAILABLE_WORKING_3 time A 00:00-03:00
 ```
+
 ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/10%20acl.conf.jpg)
 *Gambar 10 acl.conf*
 
@@ -676,7 +696,6 @@ include /etc/squid/acl-bandwidth.conf
 ```
 
 **Step 2:** buat file baru dengan nano /etc/squid/acl-bandwidth.conf dan tambahkan konfigurasi sebagai berikut 
-
 ```
 acl download url_regex -i \.jpg$ \.png$
 
@@ -693,14 +712,21 @@ delay_access 1 deny zoro
 delay_access 1 allow download
 delay_access 1 deny all
 ```
-**Step 2:** Lakukan restart squid dengan perintah ```service squid restart```
 
+![12 acl-bandwith conf](https://user-images.githubusercontent.com/55240758/141309192-0fdcdd5e-fcad-4679-88b1-8ae8130135a3.jpg)
+
+
+**Step 2:** Lakukan restart squid dengan perintah ```service squid restart```
 
 **Step 3:** Cek hasil konfigurasi dengan membuka halaman super.franky.a06.com melalui perintah ```lynx super.franky.a06.com``` 
 
 **Step 4:** Login dengan menggunakan akun luffy, username : ```luffybelikapala06``` & pass : ```luffy_a06```
 
+![9 halaman login user luffy](https://user-images.githubusercontent.com/55240758/141309098-2d367b93-c2d1-488e-a273-3810aeae8a57.jpg)
+
 **Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
+
+![12 luffy download jpg](https://user-images.githubusercontent.com/55240758/141309272-d7064155-e4e5-4d4e-ad4f-3eb386106d2c.jpg)
 
 *Gambar 12*
 
@@ -716,13 +742,24 @@ delay_access 2 deny luffy
 delay_access 2 deny all
 ```
 
+![13 acl-bandwith conf](https://user-images.githubusercontent.com/55240758/141309241-483757d8-d1d8-45ae-ad1b-604ea2575f1f.jpg)
+
+
 **Step 2:** Lakukan restart squid dengan perintah ```service squid restart```
 
 **Step 3:** Cek hasil konfigurasi dengan membuka halaman super.franky.a06.com melalui perintah ```lynx super.franky.a06.com``` 
 
 **Step 4:** Login dengan menggunakan akun zorro, username : ```zorobelikapala06``` & pass : ```zoro_a06```
 
-**Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
+![13 login zoro](https://user-images.githubusercontent.com/55240758/141308639-bf63545d-7000-42a5-9f80-884b0f0c20f4.jpg)
+
+**Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Maka dapat diketahui pengunduham tidak memiliki batasan kecepatan internet sebagai berikut
+
+![13 mau download ini](https://user-images.githubusercontent.com/55240758/141308803-711f9553-62da-4019-9a5d-64bd56b02ea9.jpg)
+
+kemudian diarahkan kehalam selanjutnya untuk menentukan tempat penyimpanan pengunduhan
+
+![13 halaman download](https://user-images.githubusercontent.com/55240758/141308882-f515089b-48cf-4b98-a978-eb4a36f3c5a8.jpg)
 
 *Gambar 13*
 
