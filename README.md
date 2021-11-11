@@ -128,8 +128,7 @@ pada saat penginstalan dhcp relay terdapat pertanyaan :
   isi dengan : eth1 eth2 eth3
 ```
 Langkah selanjutnya :  
-  - lakukan pengecekan pada file isc-dhcp-relay. 
-   Untuk membuka file : ```nano /etc/default/isc-dhcp-relay``` 
+  - lakukan pengecekan pada file isc-dhcp-relay dengan perintah : ```nano /etc/default/isc-dhcp-relay```   
   - cek apakah interface telah sesuai dengan berikut INTERFACES="eth1 eth2 eth3"
    & SERVERS="10.2.2.4"   
    sebagai berikut:  
@@ -156,14 +155,12 @@ apt-get install isc-dhcp-server -y
 *Gambar file script.sh Jipangu*
 
 Langkah selanjutnya :
-- buka file isc-dhcp-server & isi INTERFACES = "eth0". 
-  untuk membuka file : ```nano /etc/default/isc-dhcp-server```
+- buka file isc-dhcp-server dengan perintah ```nano /etc/default/isc-dhcp-server``` & isi INTERFACES = "eth0" seperti gambar berikut 
+-  
    *Gambar 1.2 config dhcp server*
-- kemudian lakukan restart dengan :
-   ```service isc-dhcp-server restart```
-- cek status dhcp server :
-pastikan dhcp server telah berhasil berjalan.
-   ```service isc-dhcp-server status```
+   
+- kemudian lakukan restart dengan perintah ```service isc-dhcp-server restart```
+- cek status dhcp server, pastikan dhcp server telah berhasil berjalan dengan perintah ```service isc-dhcp-server status```
 
 > **Node Water7**
 ```
@@ -174,12 +171,9 @@ apt-get install apache2-utils -y
 ```
 
 Langkah selanjutnya :
-- Backup terlebih dahulu file konfigurasi default yang disediakan Squid.
-  ``` mv /etc/squid/squid.conf /etc/squid/squid.conf.bak```
-- kemudian lakukan restart dengan :
-   ```service squid restart```
-- cek status squid :
-   ```service squid status```
+- Backup terlebih dahulu file konfigurasi default yang disediakan Squid dengan perintah ``` mv /etc/squid/squid.conf /etc/squid/squid.conf.bak```
+- kemudian lakukan restart squid dengan perintah ```service squid restart```
+- cek status squid dengan perintah ```service squid status```
 
 > **Node client**
 ```
@@ -224,7 +218,7 @@ subnet 10.2.3.0 netmask 255.255.255.0 {
 }
 ```
 
-*Gambar 3.6 config dhcp server subnet1*
+*Gambar 3.6 config dhcp server subnet2*
 
 ```
 # untuk mengarahkan supaya gatewaynya masuk > solusi fail
@@ -248,9 +242,11 @@ kemudian lakukan konfigurasi pada node-node client dengan
   
   *Gambar 3.6 konfigurasi baru pada Loguetown*
   
-- lakukan restart setiap node client :  
-  klik kanan node → klik Stop → klik kanan kembali node → klik Start  
-  
+- lakukan restart setiap node client dengan cara
+```diff 
+  > klik kanan node → klik Stop → klik kanan kembali node → klik Start  
+```
+
   *Gambar 3.6 restart node client*
 
 lakukan pengecekan dengan ip a untuk mengetahui apakah konfigurasi telah berhasil. Jika telah berhasil maka ip akan berubah sesuai range yang di berikan pada konfigurasi di /etc/dhcp/dhcpd.conf sesuai yang diminta soal yaitu pada switch 1 rangenya 10.2.1.20 - 10.2.1.99 & 10.2.1.150 - 10.2.1.169 . Sedangkan pada switch 3 rangenya 10.2.3.30-10.2.3.50. contohnya sebagai berikut :  
