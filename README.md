@@ -368,6 +368,7 @@ visible_hostname jualbelikapal.a06.com
 
 **Step 1:** untuk memeriksa apakah konfigurasi pembuatan domain berhasil atau tidak dengan perintah
 ```ping jualbelikapal.a06.com```
+
 *Gambar hasil ping jualbelikapal.a06.com*
 
 **Step 2:** lakukan konfigurasi proxy dengan mengaktifkan proxy sebagai berikut ```export http_proxy="http://ip-proxy-server:port"```
