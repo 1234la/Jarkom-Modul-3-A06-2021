@@ -275,6 +275,7 @@ Client mendapatkan DNS dari EniesLobby dan client dapat terhubung dengan interne
 
 ### Jawab
 Setelah melakukan konfigurasi diatas, node client tidak terhubung dengan internet. Maka agar node client dapat mengakses internet, yakni dengan menggunakan DNS Forwarder untuk mengarahkan DNS Server ke IP yang ingin dituju. Sehingga pada node enieslobby buka file named.conf.options pada /etc/bind/ dengan ```nano named.conf.options``` . Kemudian lakukan :
+  
 **Step 1:** uncommand forwarders dan tambahkan ip
 ```
 forwarders {
@@ -520,7 +521,7 @@ acl AVAILABLE_WORKING_2 time TWHF 17:00-23:59
 acl AVAILABLE_WORKING_3 time A 00:00-03:00
 ```
 ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/10%20acl.conf.jpg)
-*Gambar 10 acl.conf"
+*Gambar 10 acl.conf*
 
 **Step 3:** Buka file squid.conf dengan perintah ```nano /etc/squid/squid.conf``` & tambahkan konfigurasi berikut pada file squid.conf
 
@@ -533,7 +534,7 @@ acl AVAILABLE_WORKING_3 time A 00:00-03:00
 ```
 maka letakkan konfigurasi sesuai gambar berikut :
 
-![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/10%20squid.conf.jpg)
+![10 squid conf1](https://user-images.githubusercontent.com/55240758/141306994-d8888f6f-4bd7-4b8a-9e71-b0722ca38ced.jpg)
 
 *Gambar 10 squid.conf1*
 
@@ -566,7 +567,7 @@ zone "super.franky.a06.com" {
 
 ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20named.conf.local.jpg)
 
-*Gambar 11 named.conf.local"
+*Gambar 11 named.conf.local*
 
 **Step 2:** buat folder sunnygo dengan perintah ```mkdir sunnygo```
 
@@ -578,7 +579,7 @@ zone "super.franky.a06.com" {
 
 ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20super.franky.a06.jpg)
 
-*Gambar 11 super.franky.a06.com"
+*Gambar 11 super.franky.a06.com*
 
 **Step 5:** lakukan restart bind ```service bind9 restart```
 
@@ -635,7 +636,7 @@ acl site dstdomain .google.com
 deny_info http://super.franky.a06.com/ site
 http_reply_access deny site
 ```
-![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/10%20squid.conf.jpg)
+![11 squid conf](https://user-images.githubusercontent.com/55240758/141305654-96b0371f-cd24-4f5e-b616-1403bf45e76b.jpg)
 
 *Gambar 11 squid.conf*
 
