@@ -413,6 +413,7 @@ htpasswd -m /etc/squid/passwd zorobelikapala06
 ```
 
 Ketikkan password yang telah ditentukan. Jika sudah maka akan muncul notifikasi:
+
 *Gambar 9 notifikasi password*
 
 **Step 2:** melakukan edit file dengan membuka ```nano /etc/squid/squid.conf``` Lalu tambahkan konfigurasi berikut 
@@ -427,6 +428,7 @@ http_access allow USERS
 ```
 
 sebagai berikut :
+
 *Gambar 9 config squid.conf*
 
 **Step 3:** Restart squid dengan :
@@ -434,16 +436,17 @@ sebagai berikut :
 
 **Step 4:** coba untuk mengakses web http://its.ac.id dengan perintah ```lynx http://its.ac.id``` . Maka kemudian akan di arahkan ke halaman login, isikan dengan username & password yang telah dibuat.
 
-- Login dengan username luffybelikapala06
+- Login dengan username luffybelikapala06  
+
 *Gambar 9 halaman login user luffy*
 
 *Gambar 9 halaman login pass luffy*
 
-setelah login muncul notif SSL tekan y (yes) maka website akan ditampilkan
+setelah login muncul notif SSL tekan y (yes) maka website akan ditampilkan  
 
 *Gambar 9 halaman its luffy*
 
-- login dengan username zorobelikapala06
+- login dengan username zorobelikapala06  
 
 *Gambar 9 halaman login user zoro*
 
@@ -458,8 +461,7 @@ Transaksi jual beli tidak dilakukan setiap hari, oleh karena itu akses internet 
 ### Jawab
 
 untuk membuat batasan waktu akses maka pada node Water7:
-**Step 1:** Buat file baru bernama acl.conf di folder squid
-nano /etc/squid/acl.conf
+**Step 1:** Buat file baru bernama acl.conf di folder squid dengan perintah ```nano /etc/squid/acl.conf```
 
 **Step 2:** Tambahkan pada file acl.conf konfigurasi berikut 
 ```
@@ -470,7 +472,7 @@ acl AVAILABLE_WORKING_3 time A 00:00-03:00
 
 *Gambar 10 acl.conf"
 
-**Step 3:** Buka file squid.conf dengan nano /etc/squid/squid.conf & tambahkan konfigurasi pada file squid.conf
+**Step 3:** Buka file squid.conf dengan perintah ```nano /etc/squid/squid.conf``` & tambahkan konfigurasi berikut pada file squid.conf
 
 ```
 #Cara 2 pembatasan waktu akses
@@ -484,7 +486,7 @@ maka letakkan konfigurasi sesuai gambar berikut :
 
 **Step 4:** Lakukan restart squid dengan perintah ```service squid restart```
 
-**Step 5:** Coba untuk mengakses web http://its.ac.id. Akan muncul halaman error jika mengakses diluar waktu yang telah ditentukan. sebagai berikut :
+**Step 5:** Coba untuk mengakses web http://its.ac.id. Akan muncul halaman error jika mengakses diluar waktu yang telah ditentukan sebagai berikut 
 
 *Gambar 10 halaman http forbidden*
 
@@ -510,6 +512,7 @@ zone "super.franky.a06.com" {
 **Step 2:** buat folder sunnygo dengan perintah ```mkdir sunnygo```
 
 **Step 3:** Copykan file db.local pada path /etc/bind ke dalam folder sunnygo dan ubah namanya menjadi super.franky.a06.com dengan perintah 
+
 ```cp /etc/bind/db.local /etc/bind/sunnygo/super.franky.a06.com```
 
 **Step 4:** sesuaikan konfigurasi pada file super.franky.a06.com seperti gambar berikut
@@ -528,7 +531,7 @@ apt-get install apache2 -y
 ```
 **Step 2:** aktifkan apache2 dengan service apache2 restart
 
-**Step 3:** Pindah ke directory /var/www dengan cd /var/www
+**Step 3:** Pindah ke directory /var/www dengan ```cd /var/www```
 
 **Step 4:** buat sebuah directory baru di dalam var/www dengan nama super.franky.a06.com, pada directory tersebut lakukan pengunduhan file
 https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/super.franky.zip . serta unzip dan pindahkan file isi dari zip
@@ -543,9 +546,11 @@ keluar.
 *Gambar 11 isi folder vr ww super.franky.a06*
 
 **Step 5:** buka folder sites-available dengan ```cd /etc/apache2/sites-available``` & kemudian buat file nano super.franky.a06.com.conf dengan perintah
+
 ```cp 000-default.conf super.franky.a06.com.conf```
 
 **Step 6:** tambahkan konfigurasi seperti gambar berikut pada file super.franky.a06.com.conf
+
 *Gambar 11 super.franky.a06.com*
 
 **Step 7:** Aktifkan konfigurasi super.franky.a06.com.conf menggunakan perintah ```a2ensite super.franky.a06.com.conf```
