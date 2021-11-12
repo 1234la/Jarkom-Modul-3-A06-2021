@@ -19,7 +19,7 @@ Luffy bersama Zoro berencana membuat peta tersebut dengan kriteria EniesLobby se
 ### Jawaban 
 **Step 1:** Membuat topologi sesuai gambar topologi yang terlampir, dan mengatur network interface setiap nodenya dengan cara :
 - klik kanan node > edit network configuration atau melalui command line node ```nano /etc/network/interfaces```
-- tambahkan konfigurasi berikut pada network :  
+- Tambahkan konfigurasi berikut pada network :  
 
   > **Node Foosha**
   ```
