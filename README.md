@@ -18,7 +18,7 @@ Lapres Praktikum Jaringan Komputer 2021 - Modul 3
 Luffy bersama Zoro berencana membuat peta tersebut dengan kriteria EniesLobby sebagai DNS Server, Jipangu sebagai DHCP Server, Water7 sebagai Proxy Server (1) dan Foosha sebagai DHCP Relay (2)
 ### Jawaban 
 **Step 1:** Membuat topologi sesuai gambar topologi yang terlampir, dan mengatur network interface setiap nodenya dengan cara :
-- klik kanan node > edit network configuration atau melalui command line node ```nano /etc/network/interfaces```
+- Klik kanan node > edit network configuration atau melalui command line node ```nano /etc/network/interfaces```
 - Tambahkan konfigurasi berikut pada network :  
 
   > **Node Foosha**
@@ -753,13 +753,15 @@ delay_access 2 deny all
 
 ![13 login zoro](https://user-images.githubusercontent.com/55240758/141308639-bf63545d-7000-42a5-9f80-884b0f0c20f4.jpg)
 
-**Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Maka dapat diketahui pengunduham tidak memiliki batasan kecepatan internet sebagai berikut
+**Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Maka dapat diketahui pengunduhan tidak memiliki batasan kecepatan internet sebagai berikut
 
 ![13 mau download ini](https://user-images.githubusercontent.com/55240758/141308803-711f9553-62da-4019-9a5d-64bd56b02ea9.jpg)
 
 kemudian diarahkan kehalam selanjutnya untuk menentukan tempat penyimpanan pengunduhan
 
 ![13 halaman download](https://user-images.githubusercontent.com/55240758/141308882-f515089b-48cf-4b98-a978-eb4a36f3c5a8.jpg)
+
+![13 mau download jpg](https://user-images.githubusercontent.com/73771452/141420822-caf7d417-a6a9-46ef-909e-0d5932ccbe87.jpg)
 
 *Gambar 13*
 
