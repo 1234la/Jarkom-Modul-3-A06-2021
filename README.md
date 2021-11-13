@@ -717,7 +717,7 @@ pada config di atas bagian ``delay_parameters``, diperoleh 1250 untuk max (sebag
 
 ![1636439023226](https://user-images.githubusercontent.com/55240758/141602119-dda406d5-e8f2-4967-b023-1577d1b6926c.jpg)
 
-sehingga 10000 byte tersebut dibagi dengan 8 agar barubah menjadi satuan bit. Maka diperoleh 1250 agar kecepatan yang diperoleh adalah kisaran 10 kilobit.
+sehingga 10000 byte tersebut dibagi dengan 8 agar barubah menjadi satuan bit. Maka diperoleh 1250 byte agar kecepatan yang diperoleh adalah kisaran 10 kilobit.
 
 ![12 acl-bandwith conf](https://user-images.githubusercontent.com/55240758/141309192-0fdcdd5e-fcad-4679-88b1-8ae8130135a3.jpg)
 
