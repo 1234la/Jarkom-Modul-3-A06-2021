@@ -767,9 +767,11 @@ lakukan ``lynx super.franky.xxx.com`` > arahkan ke folder public menggunakan pan
 
 ![13 mau download ini](https://user-images.githubusercontent.com/55240758/141308803-711f9553-62da-4019-9a5d-64bd56b02ea9.jpg)
 
-kemudian diarahkan kehalam selanjutnya untuk menentukan tempat penyimpanan pengunduhan
+kemudian diarahkan kehalaman selanjutnya untuk menentukan tempat penyimpanan pengunduhan
 
 ![13 halaman download](https://user-images.githubusercontent.com/55240758/141308882-f515089b-48cf-4b98-a978-eb4a36f3c5a8.jpg)
+
+Adapun zoro dapat melakukan pengunduhan file .jpg atau .png tanpa ada batasan sebagai berikut 
 
 ![13 mau download jpg](https://user-images.githubusercontent.com/73771452/141420822-caf7d417-a6a9-46ef-909e-0d5932ccbe87.jpg)
 
