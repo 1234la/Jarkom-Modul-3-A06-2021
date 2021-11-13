@@ -761,7 +761,9 @@ delay_access 2 deny all
 
 ![13 login zoro](https://user-images.githubusercontent.com/55240758/141308639-bf63545d-7000-42a5-9f80-884b0f0c20f4.jpg)
 
-**Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. lynx super.franky.xxx.com > arahkan ke folder public menggunakan panah kanan > enter folder public > pilih file mana yang mau di download dengan menekan tombol panah kanan sampai file yang ingin di download > untuk melakukan download, ketika sudah berada di file yang mau di download tekan tombol ```d``` atau key ``d``. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
+**Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Adapun cara untuk melakukan pengunduhan yaitu :
+
+lakukan ``lynx super.franky.xxx.com`` > arahkan ke folder public menggunakan panah kanan > enter folder public > pilih file mana yang mau di download dengan menekan tombol panah kanan sampai file yang ingin di download > untuk melakukan download, ketika sudah berada di file yang mau di download tekan tombol ```d``` atau key ``d``. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
 
 ![13 mau download ini](https://user-images.githubusercontent.com/55240758/141308803-711f9553-62da-4019-9a5d-64bd56b02ea9.jpg)
 
