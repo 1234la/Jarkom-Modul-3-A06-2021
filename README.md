@@ -572,7 +572,7 @@ maka letakkan konfigurasi sesuai gambar berikut :
 
 **Step 4:** Lakukan restart squid dengan perintah ```service squid restart```
 
-**Step 5:** Coba untuk mengakses web http://its.ac.id. Akan muncul halaman error jika mengakses diluar waktu yang telah ditentukan sebagai berikut 
+**Step 5:** Coba untuk mengakses web http://its.ac.id dengan ``lynx http://its.ac.id```. Akan muncul halaman error jika mengakses diluar waktu yang telah ditentukan sebagai berikut 
 
 ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/10%20halaman%20http%20forbidden.jpg)
 
