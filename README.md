@@ -713,6 +713,12 @@ delay_access 1 allow download
 delay_access 1 deny all
 ```
 
+pada config di atas bagian ``delay_parameters``, diperoleh 1250 untuk max (sebagai pembilang) maupun throughputnya (sebagai penyebut) agar diperoleh bandwith yang sesuai dengan soal yakni 10 kilobit. Dimana default dari pengaturan tersebut adalah dalam satuan byte maka asumsikan bahwa untuk mendapatkan 10 kilobyte yakni dengan 10000 untuk max maupun throughputnya. Namun dikarenakan satuan yang diinginkan adalah dalam bentuk bit, maka dapat kita ketahui bahwa :
+
+![1636439023226](https://user-images.githubusercontent.com/55240758/141602119-dda406d5-e8f2-4967-b023-1577d1b6926c.jpg)
+
+sehingga 10000 byte tersebut dibagi dengan 8 agar barubah menjadi satuan bit. Maka diperoleh 1250 agar kecepatan yang diperoleh adalah kisaran 10 kilobit.
+
 ![12 acl-bandwith conf](https://user-images.githubusercontent.com/55240758/141309192-0fdcdd5e-fcad-4679-88b1-8ae8130135a3.jpg)
 
 
@@ -724,7 +730,9 @@ delay_access 1 deny all
 
 ![9 halaman login user luffy](https://user-images.githubusercontent.com/55240758/141309098-2d367b93-c2d1-488e-a273-3810aeae8a57.jpg)
 
-**Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
+**Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Adapun cara untuk melakukan pengunduhan yaitu :
+
+lynx super.franky.xxx.com > arahkan ke folder public menggunakan panah kanan > enter folder public > pilih file mana yang mau di download dengan menekan tombol panah kanan sampai file yang ingin di download > untuk melakukan download, ketika sudah berada di file yang mau di download tekan tombol ```d``` atau key ``d``. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
 
 ![12 luffy download jpg](https://user-images.githubusercontent.com/55240758/141309272-d7064155-e4e5-4d4e-ad4f-3eb386106d2c.jpg)
 
@@ -753,7 +761,7 @@ delay_access 2 deny all
 
 ![13 login zoro](https://user-images.githubusercontent.com/55240758/141308639-bf63545d-7000-42a5-9f80-884b0f0c20f4.jpg)
 
-**Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Maka dapat diketahui pengunduhan tidak memiliki batasan kecepatan internet sebagai berikut
+**Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. lynx super.franky.xxx.com > arahkan ke folder public menggunakan panah kanan > enter folder public > pilih file mana yang mau di download dengan menekan tombol panah kanan sampai file yang ingin di download > untuk melakukan download, ketika sudah berada di file yang mau di download tekan tombol ```d``` atau key ``d``. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
 
 ![13 mau download ini](https://user-images.githubusercontent.com/55240758/141308803-711f9553-62da-4019-9a5d-64bd56b02ea9.jpg)
 
