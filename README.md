@@ -748,7 +748,7 @@ sehingga 10000 byte tersebut dibagi dengan 8 agar barubah menjadi satuan bit. Ma
 
 **Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Adapun cara untuk melakukan pengunduhan yaitu :
 
-lynx super.franky.xxx.com > arahkan ke folder public menggunakan panah kanan > enter folder public > pilih file mana yang mau di download dengan menekan tombol panah kanan sampai file yang ingin di download > untuk melakukan download, ketika sudah berada di file yang mau di download tekan tombol ```d``` atau key ``d``. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
+lynx super.franky.xxx.com > arahkan ke folder public menggunakan panah bawah > enter folder public > pilih file mana yang mau di download dengan menekan tombol panah kanan sampai file yang ingin di download > untuk melakukan download, ketika sudah berada di file yang mau di download tekan tombol ```d``` atau key ``d``. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
 
 ![12 luffy download jpg](https://user-images.githubusercontent.com/55240758/141309272-d7064155-e4e5-4d4e-ad4f-3eb386106d2c.jpg)
 
@@ -782,7 +782,7 @@ Adapun untuk lebih jelasnya mengenai config tersebut dapat dibaca pada laman ini
 
 **Step 5:** lakukan pengunduhan file yang berekstensi .jpg atau .png. Adapun cara untuk melakukan pengunduhan yaitu :
 
-lakukan ``lynx super.franky.xxx.com`` > arahkan ke folder public menggunakan panah kanan > enter folder public > pilih file mana yang mau di download dengan menekan tombol panah kanan sampai file yang ingin di download > untuk melakukan download, ketika sudah berada di file yang mau di download tekan tombol ```d``` atau key ``d``. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
+lakukan ``lynx super.franky.xxx.com`` > arahkan ke folder public menggunakan panah bawah > enter folder public > pilih file mana yang mau di download dengan menekan tombol panah kanan sampai file yang ingin di download > untuk melakukan download, ketika sudah berada di file yang mau di download tekan tombol ```d``` atau key ``d``. Maka dapat diketahui pengunduham memiliki batasan kecepatan internet sebagai berikut
 
 ![13 mau download ini](https://user-images.githubusercontent.com/55240758/141308803-711f9553-62da-4019-9a5d-64bd56b02ea9.jpg)
 
