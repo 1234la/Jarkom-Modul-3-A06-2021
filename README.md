@@ -712,6 +712,7 @@ delay_access 1 deny zoro
 delay_access 1 allow download
 delay_access 1 deny all
 ```
+Adapun untuk lebih jelasnya mengenai config tersebut dapat dibaca pada laman ini: https://sites.google.com/site/huyadesakai/linux/mengatur-bandwidth-di-squid-proxy
 
 pada config di atas bagian ``delay_parameters``, diperoleh 1250 untuk max (sebagai pembilang) maupun throughputnya (sebagai penyebut) agar diperoleh bandwith yang sesuai dengan soal yakni 10 kilobit. Dimana default dari pengaturan tersebut adalah dalam satuan byte maka asumsikan bahwa untuk mendapatkan 10 kilobyte yakni dengan 10000 untuk max maupun throughputnya. Namun dikarenakan satuan yang diinginkan adalah dalam bentuk bit, maka dapat kita ketahui bahwa :
 
@@ -749,6 +750,9 @@ delay_access 2 allow zoro
 delay_access 2 deny luffy
 delay_access 2 deny all
 ```
+
+Adapun untuk lebih jelasnya mengenai config tersebut dapat dibaca pada laman ini: https://sites.google.com/site/huyadesakai/linux/mengatur-bandwidth-di-squid-proxy
+
 
 ![13 acl-bandwith conf](https://user-images.githubusercontent.com/55240758/141309241-483757d8-d1d8-45ae-ad1b-604ea2575f1f.jpg)
 
