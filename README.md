@@ -105,9 +105,12 @@ Luffy bersama Zoro berencana membuat peta tersebut dengan kriteria EniesLobby se
 **Step 2:** hubungkan terlebih dahulu internet.  
 - Pada node foosha   
 karena node foosha merupakan router atau terhubung langsung dengan internet, maka foosha perlu membagikan koneksi internet yang telah dia dapat ke node lain melalui
+
 ```iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.2.0.0/16``` 
+
 - Pada node lain 
-untuk mendapatkan internet yang telah dibagi oleh node foosha, maka setiap node perlu mengaksesnya dengan: 
+untuk mendapatkan internet yang telah dibagi oleh node foosha, maka setiap node perlu mengaksesnya dengan  
+
 ```echo nameserver 192.168.122.1 > /etc/resolv.conf```
 
 **Step 3:** kemudian dilakukan pengaturan node sesuai perannya dengan menginstall beberapa konfigurasi yang diperlukan.   
@@ -154,6 +157,9 @@ apt-get install dnsutils -y
 ![image](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/1.2%20file%20script%20di%20node%20enieslobby.jpg)  
 *Gambar 1.2 file script.sh EniesLobby*
 
+- kemudian lakukan restart bind dengan 
+```service bind9 restart```
+
 > **Node Jipangu**
 ```
 apt-get update
@@ -172,9 +178,6 @@ Langkah selanjutnya :
 
    *Gambar 1.2 config dhcp server*
    
-- kemudian lakukan restart dengan perintah ```service isc-dhcp-server restart```
-- cek status dhcp server, pastikan dhcp server telah berhasil berjalan dengan perintah ```service isc-dhcp-server status```
-
 > **Node Water7**
 ```
 apt-get update
@@ -185,8 +188,7 @@ apt-get install apache2-utils -y
 
 Langkah selanjutnya :
 - Backup terlebih dahulu file konfigurasi default yang disediakan Squid dengan perintah ``` mv /etc/squid/squid.conf /etc/squid/squid.conf.bak```
-- kemudian lakukan restart squid dengan perintah ```service squid restart```
-- cek status squid dengan perintah ```service squid status```
+
 
 > **Node client**
 ```
@@ -206,7 +208,7 @@ Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.30 - [prefix
 Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 6 menit sedangkan pada client yang melalui Switch3 selama 12 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 120 menit (6).
 
 ### Jawab
-Pada node jipangu buka file dhcpd.conf dengan ```nano /etc/dhcp/dhcpd.conf```. Lalu tambahkan konfigurasi berikut :
+Pada **node jipangu** buka file dhcpd.conf dengan ```nano /etc/dhcp/dhcpd.conf```. Lalu tambahkan konfigurasi berikut :
 ```
 # switch 1 - 6 menit
 subnet 10.2.1.0 netmask 255.255.255.0 {
@@ -215,8 +217,8 @@ subnet 10.2.1.0 netmask 255.255.255.0 {
     option routers 10.2.1.1;
     option broadcast-address 10.2.1.255;
     option domain-name-servers 10.2.2.2;
-    default-lease-time 360; //No. 6
-    max-lease-time 7200; //No. 6
+    default-lease-time 360; # No. 6
+    max-lease-time 7200; # No. 6
 }
 ```
 
@@ -231,8 +233,8 @@ subnet 10.2.3.0 netmask 255.255.255.0 {
     option routers 10.2.3.1;
     option broadcast-address 10.2.3.255;
     option domain-name-servers 10.2.2.2;
-    default-lease-time 720;//No. 6
-    max-lease-time 7200;//No. 6
+    default-lease-time 720; # No. 6
+    max-lease-time 7200; # No. 6
 }
 ```
 
@@ -251,11 +253,15 @@ subnet 10.2.2.0 netmask 255.255.255.0 {
 
 *Gambar 3.6 config dhcp server untuk membuka gateway*
 
+- kemudian lakukan restart dengan perintah ```service isc-dhcp-server restart```
+- cek status dhcp server, pastikan dhcp server telah berhasil berjalan dengan perintah ```service isc-dhcp-server status```
+
 Langkah Selanjutnya :  
 setelah melakukan konfigurasi pada node jipangu sebagai dhcp server,
-kemudian lakukan konfigurasi pada node-node client dengan
+kemudian lakukan konfigurasi pada **node-node client** dengan
 - melakukan edit dengan *command* konfigurasi lama pada file interfaces.  
   untuk membuka file :  ```nano /etc/network/interfaces```
+  
 - tambahkan pada file interfaces konfigurasi sebagai berikut 
   ```
   auto eth0
@@ -275,17 +281,17 @@ kemudian lakukan konfigurasi pada node-node client dengan
 
   *Gambar 3.6 restart node client*
 
-lakukan pengecekan dengan ip a untuk mengetahui apakah konfigurasi telah berhasil. Jika telah berhasil maka ip akan berubah sesuai range yang di berikan pada konfigurasi di /etc/dhcp/dhcpd.conf sesuai yang diminta soal yaitu pada switch 1 rangenya 10.2.1.20 - 10.2.1.99 & 10.2.1.150 - 10.2.1.169 . Sedangkan pada switch 3 rangenya 10.2.3.30-10.2.3.50. contohnya sebagai berikut :  
+lakukan pengecekan dengan ``ip a`` untuk mengetahui apakah konfigurasi telah berhasil. Jika telah berhasil maka ip akan berubah sesuai range yang di berikan pada konfigurasi di /etc/dhcp/dhcpd.conf sesuai yang diminta soal yaitu pada switch 1 rangenya 10.2.1.20 - 10.2.1.99 & 10.2.1.150 - 10.2.1.169 . Sedangkan pada switch 3 rangenya 10.2.3.30-10.2.3.50. contohnya sebagai berikut :  
 
 ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/3.6%20hasil%20ip%20a%20setelah%20config%20pd%20loguetown.jpg)
 
 *Gambar 3.6 hasil ip a setelah config pada Loguetown*
 
 ## Soal 5
-Client mendapatkan DNS dari EniesLobby dan client dapat terhubung dengan internet melalui DNS tersebut. (5)
+Client mendapatkan DNS dari EniesLobby dan client dapat terhubung dengan internet melalui DNS tersebut (5).
 
 ### Jawab
-Setelah melakukan konfigurasi diatas, node client tidak terhubung dengan internet. Maka agar node client dapat mengakses internet, yakni dengan menggunakan DNS Forwarder untuk mengarahkan DNS Server ke IP yang ingin dituju. Sehingga pada node enieslobby buka file named.conf.options pada /etc/bind/ dengan ```nano named.conf.options``` . Kemudian lakukan :
+Setelah melakukan konfigurasi diatas, node client tidak terhubung dengan internet. Maka agar node client dapat mengakses internet, yakni dengan menggunakan DNS Forwarder untuk mengarahkan DNS Server ke IP yang ingin dituju. Sehingga pada **node enieslobby** buka file named.conf.options pada /etc/bind/ dengan ```nano /etc/bind/named.conf.options``` . Kemudian lakukan:
   
 **Step 1:** uncommand forwarders dan tambahkan ip
 ```
@@ -316,7 +322,7 @@ forwarders {
 Luffy dan Zoro berencana menjadikan Skypie sebagai server untuk jual beli kapal yang dimilikinya dengan alamat IP yang tetap dengan IP [prefix IP].3.69 (7).
 
 ### Jawab
-**Step 1:** untuk membuat alamat ip yang tetap untuk node Skypie maka buka nano /etc/dhcp/dhcpd.conf pada dhcp server atau node jipangu. 
+**Step 1:** untuk membuat alamat ip yang tetap untuk **node Skypie** maka buka ```nano /etc/dhcp/dhcpd.conf``` pada dhcp server atau node jipangu. 
 tambahkan konfigurasi berikut :
 ```
 host Skypie {
@@ -353,7 +359,9 @@ Maka konfigurasi pada file dhcpd.conf menjadi :
   *Gambar 7 konfigurasi interface*
 
 **Step 4:** Lakukan restart node Skypie dengan :
-  klik kanan node → klik Stop → klik kanan kembali node → klik Start
+```diff
+  > klik kanan node → klik Stop → klik kanan kembali node → klik Start
+```
 
 **Step 5:** Lalu lakukan testing pada node skypie dengan command ```ip a```
 
@@ -404,7 +412,7 @@ visible_hostname jualbelikapal.a06.com
 ```
 
 **Step 2:** Restart squid dengan cara mengetikkan perintah:
-```ervice squid restart```
+```service squid restart```
 
 ----------------------------
 > **Pada Node Loguetown**   
@@ -546,17 +554,21 @@ acl AVAILABLE_WORKING_3 time A 00:00-03:00
 **Step 3:** Buka file squid.conf dengan perintah ```nano /etc/squid/squid.conf``` & tambahkan konfigurasi berikut pada file squid.conf
 
 ```
+include /etc/squid/acl.conf
+```
+
+```
 #Cara 2 pembatasan waktu akses
-#include /etc/squid/acl.conf
-#http_access allow USERS AVAILABLE_WORKING
-#http_access allow USERS AVAILABLE_WORKING_2
-#http_access allow USERS AVAILABLE_WORKING_3
+http_access allow USERS AVAILABLE_WORKING
+http_access allow USERS AVAILABLE_WORKING_2
+http_access allow USERS AVAILABLE_WORKING_3
 ```
 maka letakkan konfigurasi sesuai gambar berikut :
 
-![10 squid conf1](https://user-images.githubusercontent.com/55240758/141306994-d8888f6f-4bd7-4b8a-9e71-b0722ca38ced.jpg)
+![10 squid conf 2](https://user-images.githubusercontent.com/55240758/141646403-7f5823c4-c149-4215-8aa0-a2b1f3c929b2.jpg)
 
-*Gambar 10 squid.conf1*
+
+*Gambar 10 squid.conf2*
 
 **Step 4:** Lakukan restart squid dengan perintah ```service squid restart```
 
@@ -585,11 +597,11 @@ zone "super.franky.a06.com" {
 };
 ```
 
-![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20named.conf.local.jpg)
+![11 named conf local](https://user-images.githubusercontent.com/55240758/141646442-f4972760-079a-420a-8364-1c862d325484.jpg)
 
 *Gambar 11 named.conf.local*
 
-**Step 2:** buat folder sunnygo dengan perintah ```mkdir sunnygo```
+**Step 2:** buat folder sunnygo dengan perintah ```mkdir /etc/bind/sunnygo```
 
 **Step 3:** Copykan file db.local pada path /etc/bind ke dalam folder sunnygo dan ubah namanya menjadi super.franky.a06.com dengan perintah 
 
@@ -597,7 +609,7 @@ zone "super.franky.a06.com" {
 
 **Step 4:** sesuaikan konfigurasi pada file super.franky.a06.com seperti gambar berikut
 
-![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20super.franky.a06.jpg)
+![11 super franky a06 com ](https://user-images.githubusercontent.com/55240758/141646583-ead2870b-2167-4c37-84ea-8e5d70d15275.jpg)
 
 *Gambar 11 super.franky.a06.com*
 
@@ -615,9 +627,12 @@ apt-get install apache2 -y
 
 **Step 3:** Pindah ke directory /var/www dengan ```cd /var/www```
 
-**Step 4:** buat sebuah directory baru di dalam var/www dengan nama super.franky.a06.com, pada directory tersebut lakukan pengunduhan file
-https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/super.franky.zip . serta unzip dan pindahkan file isi dari zip
-keluar.
+**Step 4:** buat sebuah directory baru di dalam /var/www dengan nama super.franky.a06.com, dengan perintah
+```mkdir /var/www/super.franky.a06.com```
+
+**Step 5:** buka directory dengan perintah ```cd /var/www/super.franky.a06.com```
+
+**Step 6:** lakukan pengunduhan file https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/super.franky.zip . serta unzip dan pindahkan file isi dari zip keluar.
 
 - untuk pengunduhan lakukan penginstalan wget : ```apt-get install wget -y``` 
 - kemudian unduh file dengan perintah ```wget https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/super.franky.zip```
@@ -629,15 +644,15 @@ keluar.
 
 *Gambar 11 isi folder vr ww super.franky.a06*
 
-**Step 5:** buka folder sites-available dengan ```cd /etc/apache2/sites-available``` & kemudian buat file nano super.franky.a06.com.conf dengan perintah
+**Step 7:** buka folder sites-available dengan ```cd /etc/apache2/sites-available``` & kemudian buat file nano super.franky.a06.com.conf dengan perintah
 
 ```cp 000-default.conf super.franky.a06.com.conf```
 
-**Step 6:** tambahkan konfigurasi seperti gambar berikut pada file super.franky.a06.com.conf
+**Step 8:** tambahkan konfigurasi seperti gambar berikut pada file super.franky.a06.com.conf
 
 ![pic](https://github.com/1234la/Jarkom-Modul-3-A06-2021/blob/main/pic/11%20super.franky.a06.jpg)
 
-*Gambar 11 super.franky.a06.com*
+*Gambar 11 super.franky.a06.com.conf*
 
 **Step 7:** Aktifkan konfigurasi super.franky.a06.com.conf menggunakan perintah ```a2ensite super.franky.a06.com.conf```
 
@@ -650,7 +665,7 @@ keluar.
 -----------------------------------
 > **Pada node water7**  
 
-**Step 1:** buka nano /etc/squid/squid.conf & tambahkan konfigurasi berikut kedalam file
+**Step 1:** buka ```nano /etc/squid/squid.conf``` & tambahkan konfigurasi berikut kedalam file
 ```
 acl site dstdomain .google.com 
 deny_info http://super.franky.a06.com/ site
